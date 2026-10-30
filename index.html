@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7e9e8">
+<meta name="description" content="Presentes afetivos, cestas e balões personalizados Maia Balloons.">
+<title>Maia Balloons — Presentes que encantam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="announcement">Feito com carinho para transformar momentos em memórias ✦ Pedidos com 2 dias de antecedência</div>
+<header class="site-header">
+  <a class="brand" href="#inicio" aria-label="Maia Balloons, início">
+    <span class="brand-mark">✿</span><span><strong>maia</strong><small>BALLOONS & GIFTS</small></span>
+  </a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  <nav id="mainNav">
+    <a href="#inicio">Início</a><a href="#catalogo" data-filter="todos">Catálogo</a>
+    <a href="#catalogo" data-filter="baloes">Balões</a><a href="#catalogo" data-filter="cafe">Café da manhã</a>
+    <a href="#catalogo" data-filter="cestas">Cestas</a><a href="#catalogo" data-filter="casal">Casal</a>
+    <a href="#catalogo" data-filter="kids">Kids</a><a href="#informacoes">Como pedir</a>
+  </nav>
+  <a class="header-cta" href="#catalogo">Ver presentes <span>↗</span></a>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="hero-copy">
+    <div class="eyebrow"><span></span> PEQUENOS GESTOS, GRANDES EMOÇÕES</div>
+    <h1>Presentes que<br><em>falam por você.</em></h1>
+    <p>Balões personalizados, cestas e surpresas pensadas para celebrar quem você ama — com um toque especial em cada detalhe.</p>
+    <div class="hero-actions"><a class="button button-dark" href="#catalogo">Explore o catálogo <span>↓</span></a><a class="text-link" href="#informacoes">Como funciona <span>↗</span></a></div>
+    <div class="hero-note"><span class="note-icon">♡</span><span><b>Feito para emocionar</b><small>Personalizados com carinho</small></span></div>
+  </div>
+  <div class="hero-art" aria-label="Seleção de presentes Maia Balloons">
+    <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+    <div class="hero-image"><img src="assets/catalogo-56.jpg" alt="Presente especial do catálogo Maia Balloons"></div>
+    <div class="floating-tag tag-top"><span>✧</span> Um presente único</div>
+    <div class="floating-tag tag-bottom"><span>♡</span> feito com amor</div>
+    <div class="hero-sticker">MAIA<br><small>BALLOONS</small></div>
+  </div>
+</section>
+
+<section class="trust-strip" aria-label="Diferenciais">
+  <div><span>♡</span><p><b>Personalizado</b><small>Do seu jeito</small></p></div>
+  <div><span>✧</span><p><b>Feito com carinho</b><small>Detalhes que encantam</small></p></div>
+  <div><span>⌁</span><p><b>Entrega disponível</b><small>Via Uber Flash*</small></p></div>
+  <div><span>◷</span><p><b>Planeje sua surpresa</b><small>Peça com antecedência</small></p></div>
+</section>
+
+<section class="catalog-section" id="catalogo">
+  <div class="section-heading">
+    <div><div class="eyebrow"><span></span> ENCONTRE O PRESENTE IDEAL</div><h2>Um mimo para <em>cada momento.</em></h2></div>
+    <p>Escolha uma categoria, encontre seu favorito e fale com a gente para fazer seu pedido.</p>
+  </div>
+  <div class="catalog-controls">
+    <div class="filter-tabs" role="group" aria-label="Filtrar catálogo">
+      <button class="filter active" data-filter="todos">Todos os presentes</button>
+      <button class="filter" data-filter="baloes">Balões</button>
+      <button class="filter" data-filter="cafe">Café da manhã</button>
+      <button class="filter" data-filter="cestas">Cestas personalizadas</button>
+      <button class="filter" data-filter="casal">Presentes para casal</button>
+      <button class="filter" data-filter="kids">Kids</button>
+    </div>
+    <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar presente..." aria-label="Buscar presente"></label>
+  </div>
+  <div class="results-line"><span id="resultsCount">63 presentes</span><span>Valores em reais (R$)</span></div>
+  <div id="productGrid" class="product-grid"></div>
+  <div id="emptyState" class="empty-state" hidden>Não encontramos esse presente. Tente outra busca. ♡</div>
+</section>
+
+<section class="love-banner">
+  <div class="love-symbol">♡</div><div><p class="eyebrow">A SURPRESA COMEÇA AQUI</p><h2>Seu carinho merece<br><em>uma embalagem especial.</em></h2></div>
+  <a class="button button-light" href="#catalogo">Escolher presente <span>↗</span></a>
+  <span class="banner-sparkle sparkle-a">✦</span><span class="banner-sparkle sparkle-b">✧</span>
+</section>
+
+<section class="info-section" id="informacoes">
+  <div class="section-heading"><div><div class="eyebrow"><span></span> SIMPLES E ESPECIAL</div><h2>Como fazer <em>seu pedido.</em></h2></div><p>Para preparar cada detalhe com cuidado, confira as informações antes de encomendar.</p></div>
+  <div class="steps-grid">
+    <article class="step-card"><span class="step-number">01</span><div class="step-icon">♡</div><h3>Escolha seu presente</h3><p>Explore o catálogo e selecione a opção que mais combina com a ocasião.</p></article>
+    <article class="step-card"><span class="step-number">02</span><div class="step-icon">◷</div><h3>Peça com antecedência</h3><p>Faça seu pedido com no mínimo <b>2 dias de antecedência</b>.</p></article>
+    <article class="step-card"><span class="step-number">03</span><div class="step-icon">✧</div><h3>Confirme o pedido</h3><p>É necessário o pagamento de <b>50% do valor total</b> para confirmar e reservar.</p></article>
+    <article class="step-card"><span class="step-number">04</span><div class="step-icon">⌁</div><h3>Combine a entrega</h3><p>Entregas via Uber Flash. Consulte a taxa conforme seu endereço.</p></article>
+  </div>
+  <div class="policy-grid">
+    <div class="policy-card"><div class="policy-title"><span>↗</span><h3>Pagamento</h3></div><p>Aceitamos <b>Pix e cartão de débito/crédito</b>. Em caso de parcelamento, podem incidir juros e taxas da operadora.</p></div>
+    <div class="policy-card policy-warning"><div class="policy-title"><span>!</span><h3>Cancelamentos</h3></div><p>Se o pedido for cancelado próximo à data de entrega ou no próprio dia, o valor pago não será reembolsado.</p></div>
+  </div>
+  <p class="fine-print">* A taxa de entrega deve ser consultada. Preços e disponibilidade devem ser confirmados no momento do pedido.</p>
+</section>
+</main>
+
+<footer class="site-footer">
+  <a class="brand brand-footer" href="#inicio"><span class="brand-mark">✿</span><span><strong>maia</strong><small>BALLOONS & GIFTS</small></span></a>
+  <p>Presentes com afeto, feitos para marcar momentos.</p><a href="#inicio" class="back-top">Voltar ao topo ↑</a>
+  <div class="footer-bottom"><span>© 2026 Maia Balloons</span><span>Feito com carinho ♡</span></div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="products.js"></script><script src="app.js"></script>
+</body>
+</html>
