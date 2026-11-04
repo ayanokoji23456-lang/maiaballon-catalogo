@@ -80,24 +80,20 @@ function sendWhatsApp(product){
     return;
   }
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-  const isMobile = window.matchMedia("(max-width: 767px)").matches || window.matchMedia("(pointer: coarse)").matches;
-
-  if(isMobile){
-    window.location.assign(whatsappUrl);
-    return;
-  }
-  window.open(whatsappUrl,"_blank","noopener,noreferrer");
+  window.open(whatsappUrl, "_blank");
 }
 
 grid.addEventListener("click",event=>{
   const btn = event.target.closest("[data-order]");
   if(btn){
+    event.stopPropagation();
     const product = window.PRODUCTS.find(p=>p.id===btn.dataset.order);
     if(product) sendWhatsApp(product);
     return;
   }
   const photo = event.target.closest("[data-product]");
   if(!photo) return;
+  event.stopPropagation();
   const product = window.PRODUCTS.find(p=>p.id===photo.dataset.product);
   if(product) openProductModal(product);
 });
@@ -106,7 +102,10 @@ document.getElementById("modalClose").addEventListener("click",closeProductModal
 document.getElementById("zoomIn").addEventListener("click",()=>setModalZoom(zoom + .25));
 document.getElementById("zoomOut").addEventListener("click",()=>setModalZoom(zoom - .25));
 document.getElementById("zoomReset").addEventListener("click",()=>setModalZoom(1));
-document.getElementById("modalOrder").addEventListener("click",()=>{if(modalProduct) sendWhatsApp(modalProduct);});
+document.getElementById("modalOrder").addEventListener("click",event=>{
+  event.stopPropagation();
+  if(modalProduct) sendWhatsApp(modalProduct);
+});
 modalImageWrap.addEventListener("dblclick",()=>setModalZoom(zoom === 1 ? 2 : 1));
 modalImageWrap.addEventListener("wheel",event=>{event.preventDefault(); setModalZoom(zoom + (event.deltaY < 0 ? .25 : -.25));},{passive:false});
 productModal.addEventListener("click",event=>{if(event.target === productModal) closeProductModal();});
