@@ -79,7 +79,14 @@ function sendWhatsApp(product){
     toast.classList.add("show"); setTimeout(()=>toast.classList.remove("show"),3500);
     return;
   }
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,"_blank","noopener");
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  const isMobile = window.matchMedia("(max-width: 767px)").matches || window.matchMedia("(pointer: coarse)").matches;
+
+  if(isMobile){
+    window.location.assign(whatsappUrl);
+    return;
+  }
+  window.open(whatsappUrl,"_blank","noopener,noreferrer");
 }
 
 grid.addEventListener("click",event=>{
