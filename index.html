@@ -100,6 +100,28 @@
   <div class="footer-bottom"><span>© 2026 Maia Balloons</span><span>Feito com carinho ♡</span></div>
 </footer>
 
+<dialog class="product-modal" id="productModal" aria-labelledby="modalTitle">
+  <div class="modal-shell">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Fechar visualização">×</button>
+    <div class="modal-viewer">
+      <div class="modal-image-wrap" id="modalImageWrap">
+        <img id="modalImage" src="" alt="">
+      </div>
+      <div class="zoom-controls" aria-label="Controles de zoom">
+        <button type="button" id="zoomOut" aria-label="Reduzir zoom">−</button>
+        <button class="zoom-reset" type="button" id="zoomReset">100%</button>
+        <button type="button" id="zoomIn" aria-label="Aumentar zoom">+</button>
+      </div>
+    </div>
+    <div class="modal-details">
+      <span class="modal-category" id="modalCategory"></span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div class="modal-price-row"><strong id="modalPrice"></strong><button class="order-button modal-order" id="modalOrder" type="button">Quero esse ↗</button></div>
+    </div>
+  </div>
+</dialog>
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="products.js"></script><script src="app.js"></script>
 </body>

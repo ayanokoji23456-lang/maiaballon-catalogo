@@ -19,3 +19,4 @@ Site responsivo baseado no site-modelo enviado e nos novo catálogo PDF da Maia 
 - `app.js`: filtros, busca e ação de pedido
 - `products.js`: catálogo e preços
 - `assets/`: imagens de referência extraídas dos PDFs
+- `não altere nada do desing, amenos que seja solicitado.
