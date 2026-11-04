@@ -43,14 +43,34 @@ searchInput.addEventListener("input",renderProducts);
 const productModal = document.getElementById("productModal");
 const modalImage = document.getElementById("modalImage");
 const modalImageWrap = document.getElementById("modalImageWrap");
+modalImageWrap.style.touchAction = "none";
 let modalProduct = null;
 let zoom = 1;
+let panX = 0;
+let panY = 0;
+let dragStart = null;
+
+function clamp(value, min, max){
+  return Math.min(max, Math.max(min, value));
+}
+
+function constrainPan(){
+  const maxX = Math.max(0, (modalImageWrap.clientWidth * (zoom - 1)) / 2);
+  const maxY = Math.max(0, (modalImageWrap.clientHeight * (zoom - 1)) / 2);
+  panX = clamp(panX, -maxX, maxX);
+  panY = clamp(panY, -maxY, maxY);
+  modalImage.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`;
+}
 
 function setModalZoom(nextZoom){
   zoom = Math.min(3, Math.max(1, nextZoom));
-  modalImage.style.transform = `scale(${zoom})`;
   document.getElementById("zoomReset").textContent = `${Math.round(zoom * 100)}%`;
   modalImageWrap.classList.toggle("is-zoomed", zoom > 1);
+  if(zoom === 1){
+    panX = 0;
+    panY = 0;
+  }
+  constrainPan();
 }
 
 function openProductModal(product){
@@ -108,6 +128,24 @@ document.getElementById("modalOrder").addEventListener("click",event=>{
 });
 modalImageWrap.addEventListener("dblclick",()=>setModalZoom(zoom === 1 ? 2 : 1));
 modalImageWrap.addEventListener("wheel",event=>{event.preventDefault(); setModalZoom(zoom + (event.deltaY < 0 ? .25 : -.25));},{passive:false});
+modalImageWrap.addEventListener("pointerdown",event=>{
+  if(zoom === 1) return;
+  dragStart = {x: event.clientX - panX, y: event.clientY - panY, pointerId: event.pointerId};
+  modalImageWrap.setPointerCapture(event.pointerId);
+});
+modalImageWrap.addEventListener("pointermove",event=>{
+  if(!dragStart || dragStart.pointerId !== event.pointerId) return;
+  panX = event.clientX - dragStart.x;
+  panY = event.clientY - dragStart.y;
+  constrainPan();
+});
+modalImageWrap.addEventListener("pointerup",event=>{
+  if(dragStart?.pointerId === event.pointerId){
+    dragStart = null;
+    if(modalImageWrap.hasPointerCapture(event.pointerId)) modalImageWrap.releasePointerCapture(event.pointerId);
+  }
+});
+modalImageWrap.addEventListener("pointercancel",()=>{dragStart = null;});
 productModal.addEventListener("click",event=>{if(event.target === productModal) closeProductModal();});
 productModal.addEventListener("close",()=>document.body.classList.remove("modal-open"));
 const menuToggle = document.getElementById("menuToggle");
